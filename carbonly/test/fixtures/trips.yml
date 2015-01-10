@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+
 one:
   origin: MyString
   destination: MyString
@@ -11,3 +12,4 @@ two:
   destination: MyString
   days: 1
   time_period: 1
+
