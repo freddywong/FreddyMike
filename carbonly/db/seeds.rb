@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# TRIPS
+
+Trip.create(origin: "1 George Street, Sydney", destination: "1 Hall Street, Bondi", days: 5, time_period: 12)
+

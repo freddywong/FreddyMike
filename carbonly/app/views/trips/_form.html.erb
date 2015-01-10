@@ -1,0 +1,28 @@
+<%= form_for @trip do |f| %>
+  <p>
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </p>
+ 
+  <p>
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </p>
+
+  <p>
+    <%= f.label :days %><br>
+    <%= f.text_field :days %>
+  </p>
+
+  <p>
+    <%= f.label :time_period %><br>
+    <%= f.text_field :time_period %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>  
+ 
+<% end %>
+
+<%= link_to 'All trips', trips_path %>
