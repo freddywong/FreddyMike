@@ -42,11 +42,11 @@
     }
 
     function calcRoute() {
-      var start = document.getElementById('start').value;
-      var end = document.getElementById('end').value;
+      var origin = document.getElementById('origin').value;
+      var destination = document.getElementById('destination').value;
       var request = {
-          origin:start,
-          destination:end,
+          origin:origin,
+          destination:destination,
           travelMode: google.maps.TravelMode.DRIVING
       };
       directionsService.route(request, function(response, status) {
