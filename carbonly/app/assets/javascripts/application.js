@@ -17,9 +17,6 @@
 
 //ADDING A NEW TRIP
 
-
-
-
 $(function() {
   $("#add-trip").on("submit", function(event) {
     var origin = $("#origin").val();
@@ -36,11 +33,14 @@ $(function() {
         }
       },
       success: function(trip) {
-    $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + trip.destination + "</span> <button>x</button></p>");
+        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + " "+ trip.destination + "</span> <button>x</button></p>");
       }
+
     });
-        event.preventDefault();
+          event.preventDefault();
   });
+
+//ADD TRIPS V2
 
   // $("#add-trip").on("submit", function(event) {
   //   var origin = $("#origin").val();
@@ -48,21 +48,22 @@ $(function() {
 
   //   $.post('/trips', 
   //     { trip: 
-  //       { origin: origin, 
-  //         destination: destination },
-  //         _method: "POST"    
+  //       { origin: origin,
+  //         destination: destination 
   //     }, 
   //     function(trip){
-  //       $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + "</span> <button>x</button></p>");
+  //       $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + " "+ trip.destination + "</span> <button>x</button></p>");
   //     },"json");
 
   //   event.preventDefault();
   // });
 
-  // $.getJSON("/trips", function(trips) {
-  //   $.each(todos, function(index, todo) {
-  //     $("body").append("<p data-id=\"" + todo.id + "\" class=\"todo\"><span>" + todo.text + "</span> <button>x</button></p>");
-  //   });
-  // });
+
+
+  $.getJSON("/trips", function(trips) {
+    $.each(trips, function(index, trip) {
+      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + " "+ trip.destination + "</span> <button>x</button></p>");
+    });
+  });
 
 });
