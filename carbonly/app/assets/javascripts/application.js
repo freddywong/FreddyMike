@@ -32,22 +32,6 @@ $(function() {
     $("#origin").val(origin);
     $("#destination").val(destination); 
 
-
-    // $.ajax({
-    //   method: "POST",
-    //   url: "/trips/" + tripID,
-    //   dataType: "json",
-    //   data: {
-    //     _method: "PATCH"
-    //   },
-    //   success: function() {
-    //     $trip.remove();     
-    //   },
-    //   error: function() {
-    //     alert("Sorry something went wrong...");
-    //     $trip.show();
-    //   }
-    // });
   });
 
 //DELETING A TRIP
@@ -119,8 +103,7 @@ $(function() {
 
   $.getJSON("/trips", function(trips) {
     $.each(trips, function(index, trip) {
-      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + " "+ trip.destination + "</span> <button>x</button></p>");
-    });
+      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + "</span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
   });
 
 });
