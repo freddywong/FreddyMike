@@ -15,9 +15,66 @@
 //= require turbolinks
 //= require_tree .
 
-//ADDING A NEW TRIP
+
+
+
 
 $(function() {
+
+//LOADING A TRIP
+  $("#trips-list").on("click", ".trip", function() {
+    var $trip = $(this);
+    var tripID = $trip.attr("data-id");
+    var origin = $(this).children(".origin").text();
+    var destination = $(this).children(".destination").text();
+
+
+    $("#origin").val(origin);
+    $("#destination").val(destination); 
+
+
+    // $.ajax({
+    //   method: "POST",
+    //   url: "/trips/" + tripID,
+    //   dataType: "json",
+    //   data: {
+    //     _method: "PATCH"
+    //   },
+    //   success: function() {
+    //     $trip.remove();     
+    //   },
+    //   error: function() {
+    //     alert("Sorry something went wrong...");
+    //     $trip.show();
+    //   }
+    // });
+  });
+
+//DELETING A TRIP
+  $("#trips-list").on("click", ".trip button", function() {
+    var $trip = $(this).parent();
+    var tripID = $trip.attr("data-id");
+
+    $trip.hide();
+
+    $.ajax({
+      method: "POST",
+      url: "/trips/" + tripID,
+      dataType: "json",
+      data: {
+        _method: "DELETE"
+      },
+      success: function() {
+        $trip.remove();     
+      },
+      error: function() {
+        alert("Sorry something went wrong...");
+        $trip.show();
+      }
+    });
+  });
+
+//ADDING A NEW TRIP
   $("#add-trip").on("submit", function(event) {
     var origin = $("#origin").val();
     var destination = $("#destination").val();
@@ -33,14 +90,14 @@ $(function() {
         }
       },
       success: function(trip) {
-        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span>" + trip.origin + " "+ trip.destination + "</span> <button>x</button></p>");
+        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + "</span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
       }
 
     });
-          event.preventDefault();
+    event.preventDefault();
   });
 
-//ADD TRIPS V2
+//ADD TRIPS V2 ** currently doesn't work
 
   // $("#add-trip").on("submit", function(event) {
   //   var origin = $("#origin").val();
@@ -58,7 +115,7 @@ $(function() {
   //   event.preventDefault();
   // });
 
-
+//LOAD THE FULL LIST
 
   $.getJSON("/trips", function(trips) {
     $.each(trips, function(index, trip) {

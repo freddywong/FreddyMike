@@ -44,7 +44,10 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    redirect_to trips_path    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json: {status: "ok"} }
+    end 
   end
 
   private
