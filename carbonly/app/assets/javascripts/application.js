@@ -74,7 +74,7 @@ $(function() {
         }
       },
       success: function(trip) {
-        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + "</span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
+        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
       }
 
     });
@@ -103,7 +103,7 @@ $(function() {
 
   $.getJSON("/trips", function(trips) {
     $.each(trips, function(index, trip) {
-      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + "</span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
+      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
   });
 
 });
