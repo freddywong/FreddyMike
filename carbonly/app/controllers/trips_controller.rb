@@ -3,6 +3,18 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @trips}
+    end 
+  end
+
+  def show
+    respond_to do |format|
+    format.html
+    format.json { render json: @trip}
+    end
   end
 
   def new
@@ -12,14 +24,10 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new trip_params
     if @trip.save
-      redirect_to trips_path
+      redirect_to @trip
     else
       render :new
     end
-  end
-
-  def show
-
   end
 
   def edit
