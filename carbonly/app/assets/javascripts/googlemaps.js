@@ -1,3 +1,4 @@
+ var distance;
  var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
     var map;
@@ -58,6 +59,8 @@
             outputDiv.innerHTML += origins[i] + ' to ' + destinations[j]
                 + ': ' + results[j].distance.text + ' in '
                 + results[j].duration.text + '<br>';
+                
+                distance = results[j].distance.text
           }
         }
       }

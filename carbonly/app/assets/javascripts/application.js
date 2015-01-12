@@ -91,6 +91,7 @@ $(function() {
         }
       });  
     } else {
+//UPDATING A TRIP
       var tripID = $(this).attr("data-id");
       $.ajax({
         method: "POST",
