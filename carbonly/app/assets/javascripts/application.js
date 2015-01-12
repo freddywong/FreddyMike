@@ -65,8 +65,12 @@ $(function() {
 
 //ADDING A NEW TRIP
   $("#add-trip").on("submit", function(event) {
+    console.log("#add-trip submit event");
     var origin = $("#origin").val();
+    console.log("ORIGIN: ", origin);
+
     var destination = $("#destination").val();
+    console.log("DESTINATION: ", destination);
 
     if ( !$("form#add-trip").hasClass("updating") ) {
       $.ajax({
@@ -81,6 +85,9 @@ $(function() {
         },
         success: function(trip) {
           $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
+        },
+        error: function (error) {
+          console.log(error);
         }
       });  
     } else {
@@ -135,11 +142,12 @@ $(function() {
   $.getJSON("/trips", function(trips) {
     $.each(trips, function(index, trip) {
       $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
+
   });
 
 //SUBMIT ADDRESS LISTENERS
 
-  $("#submit-address").click(function(){
+  $("#button-submit").click(function(){
     calcRoute(); 
     calculateDistances();
   });
