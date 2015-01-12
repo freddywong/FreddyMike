@@ -108,8 +108,6 @@ $(function() {
           $("#trips-list").children("p[data-id=" + trip.id + "]").find(".origin").text(trip.origin);
           $("#trips-list").children("p[data-id=" + trip.id + "]").find(".destination").text(trip.destination);
           $("form#add-trip").removeClass("updating");
-
-          console.log("The shiz worked");
         },
         error: function() {
           alert("Sorry something went wrong...");
@@ -148,11 +146,16 @@ $(function() {
 
 //SUBMIT ADDRESS LISTENERS
 
-  $("#button-submit").click(function(){
-    calcRoute(); 
+  // $("#button-submit").click(function(){
+  //   calcRoute(); 
+  //   calculateDistances();
+  // });
+
+
+  $('#button-submit').click(function(){
+    calcRoute();
     calculateDistances();
   });
-
 
 
 

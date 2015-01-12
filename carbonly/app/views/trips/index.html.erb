@@ -38,9 +38,11 @@
         </div>
         </form>
         
-        
-        <input id="slide" type="range" min="0" max="365" step="1" value="182">
-        <h3>Time Period: <span id="chosen">182</span></h3> 
+        <input id="days-slide" type="range" min="0" max="7" step="1" value="5">
+        <h3><span id="days-counter">5</span><span> Days every week</span></h3> 
+
+        <input id="time-period-slide" type="range" min="0" max="52" step="1" value="52">
+        <h3><span id="time-period-counter">52</span><span> Weeks in a year</span></h3> 
 
         <div id="trips-list"></div>
 
@@ -60,8 +62,8 @@
       <div class="pull-right"><h1 id="carbon-emissions"></h1></div>
     </section>
     <section class="pull-right">
-      <div class="pull-left"><h3>Your Carbon usage</h3></div>
-      <div class="pull-right"><h1>1.567</h1></div>
+      <div class="pull-left"><h3>Your Carbon Cost: </h3></div>
+      <div class="pull-right"><h1 id="carbon-cost"></h1></div>
     </section>
     <hr>
     <section class="trees">
