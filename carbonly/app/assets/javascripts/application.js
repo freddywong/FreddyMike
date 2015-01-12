@@ -19,6 +19,8 @@
 
 
 
+
+
 $(function() {
 
 //LOADING A TRIP
