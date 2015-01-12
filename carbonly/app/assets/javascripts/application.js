@@ -25,12 +25,15 @@ $(function() {
   $("#trips-list").on("click", ".trip", function() {
     var $trip = $(this);
     var tripID = $trip.attr("data-id");
-    var origin = $(this).children(".origin").text();
-    var destination = $(this).children(".destination").text();
+    var origin = $("#origin");
+    var destination = $("#destination");
+    var originText = $(this).children(".origin").text();
+    var destinationText = $(this).children(".destination").text();
+    $("form#add-trip").addClass("updating").attr("data-id", tripID);
+    origin.val(originText);
+    destination.val(destinationText);
+    
 
-
-    $("#origin").val(origin);
-    $("#destination").val(destination); 
 
   });
 
@@ -63,21 +66,47 @@ $(function() {
     var origin = $("#origin").val();
     var destination = $("#destination").val();
 
-    $.ajax({
-      method: "POST",
-      url: "/trips",
-      dataType: "json",
-      data: {
-        trip: {
-          origin: origin,
-          destination: destination 
+    if ( !$("form#add-trip").hasClass("updating") ) {
+      $.ajax({
+        method: "POST",
+        url: "/trips",
+        dataType: "json",
+        data: {
+          trip: {
+            origin: origin,
+            destination: destination 
+          }
+        },
+        success: function(trip) {
+          $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
         }
-      },
-      success: function(trip) {
-        $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
-      }
+      });  
+    } else {
+      var tripID = $(this).attr("data-id");
+      $.ajax({
+        method: "POST",
+        url: "/trips/" + tripID,
+        dataType: "json",
+        data: {
+          trip: {
+            origin: origin,
+            destination: destination
+          },
+          _method: "PATCH"
+        },
+        success: function(trip) {
+          $("#trips-list").children("p[data-id=" + trip.id + "]").find(".origin").text(trip.origin);
+          $("#trips-list").children("p[data-id=" + trip.id + "]").find(".destination").text(trip.destination);
+          $("form#add-trip").removeClass("updating");
 
-    });
+          console.log("The shiz worked");
+        },
+        error: function() {
+          alert("Sorry something went wrong...");
+          $trip.show();
+        }
+      });
+    }
     event.preventDefault();
   });
 
@@ -105,5 +134,15 @@ $(function() {
     $.each(trips, function(index, trip) {
       $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
   });
+
+//SUBMIT ADDRESS LISTENERS
+
+  $("#submit-address").click(function(){
+    calcRoute(); 
+    calculateDistances();
+  });
+
+
+
 
 });
