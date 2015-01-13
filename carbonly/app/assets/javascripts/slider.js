@@ -21,6 +21,13 @@ function updateSlider () {
     $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
     $("#carbon-cost").text("$" + totalCarbonCost);
   }
+
+//PRINT OUT MULTIPLE TREES
+  var numberOfTrees = Math.round(totalCarbonEmissions / 167) 
+  for ( i = 0; i < numberOfTrees; i++ ){
+    var treeTemplate = $("#tree-template").html();
+    $(".tree").append(treeTemplate);
+  }  
   
 }
 

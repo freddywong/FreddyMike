@@ -35,32 +35,10 @@ window.tree = {
 $(function() {
   //INITIALIZE AND ANIMATE TREE  
   window.tree.initialize();
-  $('#button-submit').
-  on('click', function() {
+  $('#button-submit').on('click', function() {
       window.tree.initialize();
       setTimeout(function() {
           window.tree.animate();
       }, 500);
   });
-
-  //PRINT OUT MULTIPLE TREES
-
-  for ( i = 0; i < 10; i++ ){
-    var treeTemplate = $("#tree-template").html();
-    $(".tree").append(treeTemplate);
-  }
 });
-
-// if <10 then
-// $("#tree").append. ul and li x 10 (display inline) and give an id for each one
-// and then loop over each one and .append (<%render 'tree'%>)
-
-// else
-
-//   <20 then
-// $("#tree").append. (ul and li x 10) x 2 and give an id for each one
-// and then loop over each one and .append (<%render 'tree'%>)
-//  else
-//  <20 then
-// $("#tree").append. (ul and li x 10) x 2 and give an id for each one
-// and then loop over each one and .append (<%render 'tree'%>)
