@@ -16,7 +16,7 @@ function updateSlider () {
   if (distance === undefined) {
     $("#carbon-emissions").text("0 Kg");
     $("#carbon-cost").text("0 Kg");
-    debugger;
+
   } else {
     $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
     $("#carbon-cost").text("$" + totalCarbonCost);
