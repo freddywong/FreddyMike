@@ -34,7 +34,7 @@ function updateSlider () {
   updateTrees();
 }
 
-$("input#days-slide").on("change", updateSlider);
-$("input#time-period-slide").on("change", updateSlider); 
+$("input#days-slide").on("input", updateSlider);
+$("input#time-period-slide").on("input", updateSlider); 
 
 

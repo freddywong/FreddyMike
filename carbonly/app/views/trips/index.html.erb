@@ -72,6 +72,29 @@
   </article>
 </div>
 
+<p>Fun level <span id="fun-level" style="color: green;">0 %</span>.</p>
+
+<button id="test">test</button>
+
+<script>
+function test () {
+  var percent_number_step = $.animateNumber.numberStepFactories.append(' %')
+  $('#fun-level').animateNumber(
+    {
+      number: 100,
+      color: 'red',
+      'font-size': '30px',
+
+      easing: 'easeInQuad',
+
+      numberStep: percent_number_step
+    },
+    4000
+  );
+};
+</script>
+
+
 <script type="tree/template" id="tree-template">
   <%= render 'tree' %>
 </script>
