@@ -1,0 +1,45 @@
+
+
+window.tree = {
+  initialize: function() {
+    return $('.tree svg').each(function() {
+      var delay, length, path, paths, previousStrokeLength, speed, _i, _len, _results;
+      paths = $('path');
+      delay = 0;
+      _results = [];
+      for (_i = 0, _len = paths.length; _i < _len; _i++) {
+        path = paths[_i];
+        length = path.getTotalLength();
+        previousStrokeLength = speed || 0;
+        speed = length < 100 ? 20 : Math.floor(length);
+        delay += previousStrokeLength + 100;
+        _results.push($(path).css('transition', 'none').attr('data-length', length).attr('data-speed', speed).attr('data-delay', delay).attr('stroke-dashoffset', length).attr('stroke-dasharray', length + ',' + length));
+      }
+      return _results;
+    });
+  },
+  animate: function() {
+    return $('.tree svg').each(function() {
+      var delay, length, path, paths, speed, _i, _len, _results;
+      paths = $('path');
+      _results = [];
+      for (_i = 0, _len = paths.length; _i < _len; _i++) {
+        path = paths[_i];
+        length = $(path).attr('data-length');
+        speed = $(path).attr('data-speed');
+        delay = $(path).attr('data-delay');
+        _results.push($(path).css('transition', 'stroke-dashoffset ' + speed + 'ms ' + delay + 'ms linear').attr('stroke-dashoffset', '0'));
+      }
+      return _results;
+    });
+  }
+};
+$(document).ready(function() {
+  window.tree.initialize();
+  return $('button').on('click', function() {
+    window.tree.initialize();
+    return setTimeout(function() {
+      return window.tree.animate();
+    }, 500);
+  });
+});
