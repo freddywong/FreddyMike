@@ -9,8 +9,8 @@ window.tree = {
               path = paths[_i];
               length = path.getTotalLength();
               previousStrokeLength = speed || 0;
-              speed = length < 100 ? 20 : Math.floor(length);
-              delay += previousStrokeLength + 100;
+              speed = length < 100 ? 20 : 50;
+              delay += previousStrokeLength;
               _results.push($(path).css('transition', 'none').attr('data-length', length).attr('data-speed', speed).attr('data-delay', delay).attr('stroke-dashoffset', length).attr('stroke-dasharray', length + ',' + length));
           }
           return _results;

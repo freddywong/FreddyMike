@@ -25,6 +25,7 @@ function updateSlider () {
 //PRINT OUT MULTIPLE TREES
   $(".tree").empty();
   var numberOfTrees = Math.round(totalCarbonEmissions / 167)
+  console.log(numberOfTrees);
   var treeTemplate = $("#tree-template").html(); 
   for ( i = 0; i < numberOfTrees; i++ ){
 
