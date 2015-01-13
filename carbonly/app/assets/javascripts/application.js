@@ -15,12 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-
-
-
-
-
 $(function() {
 
 //LOADING A TRIP
@@ -145,12 +139,6 @@ $(function() {
   });
 
 //SUBMIT ADDRESS LISTENERS
-
-  // $("#button-submit").click(function(){
-  //   calcRoute(); 
-  //   calculateDistances();
-  // });
-
 
   $('#button-submit').click(function(){
     calcRoute();

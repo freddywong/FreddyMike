@@ -1,5 +1,5 @@
 function updateSlider () {
-  // debugger;
+  // debugger;''
   var carEmissionsPerKm = 0.19;
   var routeDistance = 2 * (parseFloat(distance));
 
@@ -23,15 +23,17 @@ function updateSlider () {
   }
 
 //PRINT OUT MULTIPLE TREES
-  var numberOfTrees = Math.round(totalCarbonEmissions / 167) 
+  $(".tree").empty();
+  var numberOfTrees = Math.round(totalCarbonEmissions / 167)
+  var treeTemplate = $("#tree-template").html(); 
   for ( i = 0; i < numberOfTrees; i++ ){
-    var treeTemplate = $("#tree-template").html();
-    $(".tree").append(treeTemplate);
+
+    var printTrees = $(".tree").append(treeTemplate);
   }  
-  
+  updateTrees();
 }
 
-$("input#days-slide").mousemove(updateSlider);
-$("input#time-period-slide").mousemove(updateSlider); 
+$("input#days-slide").on("change", updateSlider);
+$("input#time-period-slide").on("change", updateSlider); 
 
 

@@ -32,13 +32,11 @@ window.tree = {
       });
   } 
 };
-$(function() {
-  //INITIALIZE AND ANIMATE TREE  
+
+//INITIALIZE AND ANIMATE TREE  
+function updateTrees () {
   window.tree.initialize();
-  $('#button-submit').on('click', function() {
-      window.tree.initialize();
-      setTimeout(function() {
-          window.tree.animate();
-      }, 500);
-  });
-});
+    setTimeout(function() {
+        window.tree.animate();
+    }, 500);
+};
