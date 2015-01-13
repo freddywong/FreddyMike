@@ -110,10 +110,27 @@ iframe {
 	opacity: .5;
 	height: 80px;
   width: 80px;
+  float: left;
+  display: inline-block;
+
 }
-.tree svg {
+#draw {
 	text-align: left;
+  height: 80px;
+  display: inline;
 }
+
+#hello {
+  fill:none;
+  stroke: black;
+  stroke-width:35;
+  stroke-linecap:square;
+  stroke-linejoin:square;
+  stroke-miterlimit:4;
+  stroke-opacity:1;
+  transition: all 1s ease-in-out;
+}
+
 input[type=range]{
     -webkit-appearance: none;
 }
