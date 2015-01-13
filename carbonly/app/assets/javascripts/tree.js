@@ -1,10 +1,10 @@
 
 
-window.signature = {
+window.tree = {
   initialize: function() {
     return $('.tree svg').each(function() {
       var delay, length, path, paths, previousStrokeLength, speed, _i, _len, _results;
-      paths = $('path, circle, rect', this);
+      paths = $('path');
       delay = 0;
       _results = [];
       for (_i = 0, _len = paths.length; _i < _len; _i++) {
@@ -21,7 +21,7 @@ window.signature = {
   animate: function() {
     return $('.tree svg').each(function() {
       var delay, length, path, paths, speed, _i, _len, _results;
-      paths = $('path, circle, rect', this);
+      paths = $('path');
       _results = [];
       for (_i = 0, _len = paths.length; _i < _len; _i++) {
         path = paths[_i];
@@ -35,14 +35,11 @@ window.signature = {
   }
 };
 $(document).ready(function() {
-  window.signature.initialize();
+  window.tree.initialize();
   return $('button').on('click', function() {
-    window.signature.initialize();
+    window.tree.initialize();
     return setTimeout(function() {
-      return window.signature.animate();
+      return window.tree.animate();
     }, 500);
   });
-});
-$(window).load(function() {
-  return window.signature.animate();
 });
