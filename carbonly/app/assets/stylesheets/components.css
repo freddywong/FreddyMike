@@ -68,12 +68,12 @@
 
 
 #origin {
-	padding-top: 2rem;
+	padding-top: 1.8rem;
 	padding-left: 8rem;
 }
 
 #destination {
-	padding-top: 2rem;
+	padding-top: 1.8rem;
 	padding-left: 8rem;
 }
 .content h1 {
@@ -87,11 +87,17 @@
 }
 
 .content h3 {
-	margin: 0 2 0em;
+	margin-top: .5rem;
+	opacity: 0.3;
+}
+
+.content h4 {
+	margin-top: -.2rem;
 	opacity: 0.3;
 }
 .input--haruki {
-	margin: 4em 0em 1em;
+	margin: 3em 0em 1em;
+	line-height: .5rem;
 }
 
 .input__field--haruki {
@@ -121,7 +127,7 @@
 	left: 0;
 	z-index: -1;
 	width: 90%;
-	height: 4px;
+	height: 3px;
 	background: #6a7989;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
