@@ -1,14 +1,24 @@
-<header class="main_header">
+<header class="main_header lg-col-4">
   <div class="container">
     <div id="logo">
       <p><a href="#">Carbon.ly</a></p>
     </div>
-    <form id="buttons">
-      <label>Sign up/Sign in</label>
-      <input type="text" class="mb0 field-light">
-      <button class="button-grey hvr-fade">Go</button>
-    </form>
-  </div>
+    <div id="buttons" class="lg-col-4">
+      <form>
+        <label>Sign up/Sign in</label>
+          <input type="text" class="mb0 field-light">
+        <button class="button-grey hvr-fade">Go</button>
+      </form>
+    </div>
+    <div id="buttons" class="lg-col-4">
+      <form>
+          <%= form_tag search_trips_path, method: :get, role: "search" do %>
+          <p><%= text_field_tag :search, params[:search], class: "mb0 field-light" %>
+        <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade"%>
+        </p>
+        <% end %>
+      </form>
+    </div>
 </header>
   
 
