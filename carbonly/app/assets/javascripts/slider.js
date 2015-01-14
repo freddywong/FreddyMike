@@ -69,11 +69,30 @@ function updateCounter() {
   var numberOfTrees = Math.round(totalCarbonEmissions / 167)
   console.log(numberOfTrees);
   var treeTemplate = $("#tree-template").html(); 
-  for ( i = 0; i < numberOfTrees; i++ ){
-
-    var printTrees = $(".tree").append(treeTemplate);
-  }  
+  var oneTree = $("#onetree").html(); 
+  if (numberOfTrees < 24) {
+    for  ( i = 0; i < numberOfTrees; i++ ){
+        var printTrees = $(".tree").append(treeTemplate);
+    } 
+  } else { 
+        var printTrees = $(".tree").append("<div class=\"test\">" + oneTree + "<p>X</p><h1 class=\"tree-cost\"></h1></div>"); 
+    }
+  
   updateTrees();
+
+  var percent_number_step = $.animateNumber.numberStepFactories.append('')
+  $('.tree-cost').animateNumber(
+    {
+      number: numberOfTrees,
+
+      'font-size': '30px',
+
+      easing: 'easeInQuad',
+
+      numberStep: percent_number_step
+    },
+    1000
+  );
 }
 
 

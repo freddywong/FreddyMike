@@ -68,12 +68,17 @@
     </section>
     <section class="trees pull-right">
       <div class="pull-left"><h3>Number of trees to buy: </h3></div>
-      <div class="pull-right"><h1 id="tree-cost"></h1></div>
+      <div class="pull-right"><h1 class="tree-cost"></h1></div>
+      <a href="http://www.carbonneutral.com.au/organisations/plant-trees.html">Plant Some trees</a>
        
     </section>
   </article>
 </div>
 
 <script type="tree/template" id="tree-template">
+  <%= render 'tree' %>
+</script>
+
+<script type="tree/template" id="onetree">
   <%= render 'tree' %>
 </script>
