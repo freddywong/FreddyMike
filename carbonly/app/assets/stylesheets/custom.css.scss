@@ -123,8 +123,23 @@ iframe {
   height: 80px;
   float: left;
   display: inline-block;
-/*  margin-left: 4rem;
-  margin-top: -2rem;*/
+
+.test svg {
+  display: inline;
+  height: 6rem;
+}
+
+.test p {
+  display: inline;
+  font-size: 4rem;
+  color: #014C12;
+}
+
+.test h1 {
+  display: inline;
+  font-size: 4rem;
+  color: #6a7989;
+}
 
 }
 #draw {
