@@ -18,8 +18,38 @@ function updateSlider () {
     $("#carbon-cost").text("0 Kg");
 
   } else {
-    $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
-    $("#carbon-cost").text("$" + totalCarbonCost);
+
+
+  var percent_number_step = $.animateNumber.numberStepFactories.append(' Kg')
+  $('#carbon-emissions').animateNumber(
+    {
+      number: totalCarbonEmissions,
+      color: 'red',
+      'font-size': '30px',
+
+      easing: 'easeInQuad',
+
+      numberStep: percent_number_step
+    },
+    1000
+  );
+
+  var percent_number_step = $.animateNumber.numberStepFactories.append(' Dollars')
+  $('#carbon-cost').animateNumber(
+    {
+      number: totalCarbonCost,
+
+      'font-size': '30px',
+
+      easing: 'easeInQuad',
+
+      numberStep: percent_number_step
+    },
+    1000
+  );
+
+    // $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
+    // $("#carbon-cost").text("$" + totalCarbonCost);
   }
 
 //PRINT OUT MULTIPLE TREES
@@ -36,5 +66,7 @@ function updateSlider () {
 
 $("input#days-slide").on("input", updateSlider);
 $("input#time-period-slide").on("input", updateSlider); 
+
+
 
 

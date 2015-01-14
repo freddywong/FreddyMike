@@ -62,7 +62,7 @@
                 + ': ' + results[j].distance.text + ' in '
                 + results[j].duration.text + '<br>';
                 
-                distance = results[j].distance.text
+                distance = results[j].distance.text;
           }
         }
         updateSlider();
@@ -71,5 +71,3 @@
     
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-
