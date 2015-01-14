@@ -59,5 +59,12 @@ function updateTrees () {
 
 // });
 
+//TESTING A NEW TREE ANIMATION
+
+  $('#test').on("click", function (){
+    $("#cartoon-tree").addClass('animated bounceIn');
+});
+
+
 
 
