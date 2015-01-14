@@ -123,8 +123,8 @@ iframe {
   height: 80px;
   float: left;
   display: inline-block;
-  margin-left: 4rem;
-  margin-top: -2rem;
+/*  margin-left: 4rem;
+  margin-top: -2rem;*/
 
 }
 #draw {
@@ -180,8 +180,9 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 svg {
-     width: 17%;
-    margin-left: -4rem;
+  height: 100%;
+     width: auto;
+    /*margin-left: -4rem;*/
     }
 aside {
 	background: #f0efee;
