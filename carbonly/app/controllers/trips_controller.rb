@@ -1,6 +1,8 @@
 class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  layout :trips_list_layout
+
   def index
     @trips = Trip.all
 
@@ -23,6 +25,7 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new trip_params
+    @trip.user_id = current_user.id 
     if @trip.save
       redirect_to @trip
     else
@@ -53,6 +56,11 @@ class TripsController < ApplicationController
   private
   def find_trip
     @trip = Trip.find params[:id]
+  end
+
+
+  def trips_list_layout
+    user_signed_in? ? "demo" : "trips"
   end
 
   def trip_params
