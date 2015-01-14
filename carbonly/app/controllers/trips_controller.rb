@@ -1,11 +1,10 @@
 class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  layout :trips_list_layout
+  
 
   def index
-    @trips = Trip.all
-
+    @trips = current_user.trips
     respond_to do |format|
       format.html
       format.json { render json: @trips}
@@ -13,10 +12,12 @@ class TripsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-    format.html
-    format.json { render json: @trip}
-    end
+
+      respond_to do |format|
+      format.html
+      format.json { render json: @trip}
+      end
+    
   end
 
   def new
@@ -56,11 +57,6 @@ class TripsController < ApplicationController
   private
   def find_trip
     @trip = Trip.find params[:id]
-  end
-
-
-  def trips_list_layout
-    user_signed_in? ? "demo" : "trips"
   end
 
   def trip_params

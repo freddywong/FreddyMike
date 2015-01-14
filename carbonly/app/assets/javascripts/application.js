@@ -131,7 +131,7 @@ $(function() {
   // });
 
 //LOAD THE FULL LIST
-
+  $("#trips-list").empty();
   $.getJSON("/trips", function(trips) {
     $.each(trips, function(index, trip) {
       $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");    });
