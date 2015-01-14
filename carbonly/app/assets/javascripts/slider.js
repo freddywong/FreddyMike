@@ -1,24 +1,39 @@
-function updateSlider () {
-  // debugger;''
+function carEmissionsPerTrip(distance) {
   var carEmissionsPerKm = 0.19;
   var routeDistance = 2 * (parseFloat(distance));
+  return carEmissionsPerKm * routeDistance; 
+}
+  
+
+function updateSlider() {
+  var currentDaysValue = $("input#days-slide").val();
+  var currentTimePeriodValue = $("input#time-period-slide").val();
+
+  var totalCarbonEmissions = Math.round(carEmissionsPerTrip(distance) * currentDaysValue * currentTimePeriodValue);
+  var treeCost = 3.75
+  var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);
+  $("#days-counter").text(currentDaysValue);
+  $("#time-period-counter").text(currentTimePeriodValue);
+          
+    // $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
+    // $("#carbon-cost").text("$" + totalCarbonCost);
+}
+
+
+
+function updateCounter() {
 
   var currentDaysValue = $("input#days-slide").val();
   var currentTimePeriodValue = $("input#time-period-slide").val();
 
-  var totalCarbonEmissions = Math.round(carEmissionsPerKm * routeDistance * currentDaysValue * currentTimePeriodValue);
-  var treeCost = 3.75
-  var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);
-
-  $("#days-counter").text(currentDaysValue);
-  $("#time-period-counter").text(currentTimePeriodValue);
-            
+  var totalCarbonEmissions = Math.round(carEmissionsPerTrip(distance) * currentDaysValue * currentTimePeriodValue);
+  var treeCost = 3.75;
+  var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);  
   if (distance === undefined) {
     $("#carbon-emissions").text("0 Kg");
     $("#carbon-cost").text("0 Kg");
 
-  } else {
-
+  } else { 
 
   var percent_number_step = $.animateNumber.numberStepFactories.append(' Kg')
   $('#carbon-emissions').animateNumber(
@@ -46,11 +61,8 @@ function updateSlider () {
       numberStep: percent_number_step
     },
     1000
-  );
-
-    // $("#carbon-emissions").text(totalCarbonEmissions + " Kg");
-    // $("#carbon-cost").text("$" + totalCarbonCost);
-  }
+  ); 
+}  
 
 //PRINT OUT MULTIPLE TREES
   $(".tree").empty();
@@ -64,9 +76,13 @@ function updateSlider () {
   updateTrees();
 }
 
+
+
 $("input#days-slide").on("input", updateSlider);
 $("input#time-period-slide").on("input", updateSlider); 
 
+$("input#days-slide").on("change", updateCounter);
+$("input#time-period-slide").on("change", updateCounter);
 
 
 
