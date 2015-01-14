@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :trips
+  resources :demos
   root "home#index"
 
   # Example of regular route:
