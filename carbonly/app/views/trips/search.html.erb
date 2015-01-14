@@ -1,0 +1,8 @@
+<div>
+  <%= @trips.each do |trip| %>
+      <div >
+        <%= link_to ( trip.name), trip %>
+      </div>
+      
+  <% end %>
+</div>
