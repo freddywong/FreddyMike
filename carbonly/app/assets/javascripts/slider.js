@@ -75,7 +75,7 @@ function updateCounter() {
         var printTrees = $(".tree").append(treeTemplate);
     } 
   } else { 
-        var printTrees = $(".tree").append("<div class=\"test\">" + oneTree + "<p>X</p><h1 class=\"tree-cost\"></h1></div>"); 
+        var printTrees = $(".tree").append("<div class=\"test\">" + oneTree + "<h2>X</h2><h1 class=\"tree-cost\"></h1></div>"); 
     }
   
   updateTrees();

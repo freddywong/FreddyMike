@@ -123,13 +123,18 @@ iframe {
   height: 80px;
   float: left;
   display: inline-block;
+}
+ 
+.tree a {
+text-align: center;
+}
 
 .test svg {
   display: inline;
   height: 6rem;
 }
 
-.test p {
+.test h2 {
   display: inline;
   font-size: 4rem;
   color: #014C12;
@@ -140,8 +145,26 @@ iframe {
   font-size: 4rem;
   color: #6a7989;
 }
-
+#trips-list p{
+  color: white;
+  background: black;
+  opacity: .3;
+  width: 86%;
+  padding-left: 1rem;
+  line-height: 2rem;
+  margin-bottom: .4rem;
 }
+
+#trips-list button {
+  color: white;
+  background-color: black;
+  font-size: 1.5rem;
+  line-height: .5rem;
+  width: 20px;
+  float: right;
+}
+
+
 #draw {
 	text-align: left;
   height: 80px;
