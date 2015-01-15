@@ -28,9 +28,6 @@ $(function() {
     $("form#add-trip").addClass("updating").attr("data-id", tripID);
     origin.val(originText);
     destination.val(destinationText);
-    
-
-
   });
 
 //DELETING A TRIP
@@ -57,34 +54,29 @@ $(function() {
     });
   });
 
-//ADDING A NEW TRIP
-$("#add-trip").on("submit", function(event) {
-  console.log("#add-trip submit event");
-  var origin = $("#origin").val();
-  console.log("ORIGIN: ", origin);
+//SEARCH CARS AND PRINT RESULTS
+$("#search-car-form").on("submit", function(event) {
+  $("#car-results").empty();
+  var searchCarField = $("#search-car-field").val();
+  $.getJSON("/cars?search=" + searchCarField, function(cars) {
+    $.each(cars, function(index, car) {
+      $("#car-results").append("<p car-id=\"" + car.id + "\" class=\"car\"><span>" + car.brandmodel + "</span></p>");
+    });
+  });
+  event.preventDefault();
+});  
 
-  var destination = $("#destination").val();
-  console.log("DESTINATION: ", destination);
+//LOAD SELECTED CAR
+$("#car-results").on("click", ".car", function() {  
+  var $car = $(this).children("span").text();
+  $("#car-results").empty();
+  $.getJSON("/cars?search=" + $car, function(cars) {
+    $.each(cars, function(index, car) {
+      $("#car-results").append("<p selected-car=\"true\" car-id=\"" + car.id + "\" class=\"car\"><span>" + car.brandmodel + "</span></p>");
+    });
+  });
+});  
 
-
-  $.ajax({
-    method: "POST",
-    url: "/trips",
-    dataType: "json",
-    data: {
-      trip: {
-        origin: origin,
-        destination: destination 
-      }
-    },
-    success: function(trip) {
-      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
-    },
-    error: function (error) {
-      console.log(error);
-    }
-  }); 
-});    
 //ADDING A NEW TRIP
   $("#add-trip").on("submit", function(event) {
     console.log("#add-trip submit event");

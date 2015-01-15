@@ -1,7 +1,19 @@
+function carEmissionsPerKm(){
+  var $selectedCar = $("#car-results").find("span").text();
+  $.getJSON("/cars?search=" + $selectedCar, function(cars) {
+    
+    $.each(cars, function(index, car) {
+
+      // return cars.emissionperkm
+
+    });
+  });
+}
+
 function carEmissionsPerTrip(distance) {
-  var carEmissionsPerKm = 0.19;
+  var selectedCarEmissions = carEmissionsPerKm();
   var routeDistance = 2 * (parseFloat(distance));
-  return carEmissionsPerKm * routeDistance; 
+  return selectedCarEmissions * routeDistance; 
 }
   
 

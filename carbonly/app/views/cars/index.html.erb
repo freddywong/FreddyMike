@@ -1,11 +1,7 @@
-<%= form_tag cars_path, method: :get, role: "search" do %>
-  <p><%= text_field_tag :search, params[:search], class: "mb0 field-light" %>
-    <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade"%>
+<%= form_tag "#", method: :get, role: "search", id: "search-car-form" do %>
+  <p><%= text_field_tag :search, params[:search], class: "mb0 field-light", id: "search-car-field"%>
+    <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade", id: "search-car-button" %>
   </p>
 <% end %>
 
-
-<% if @cars %>
-  <h1>uhbubugbygb</h1>
-  <%= render 'result' %>
-<% end %>
+<div id="car-results"></div>

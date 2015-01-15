@@ -4,7 +4,7 @@ class CarsController < ApplicationController
       @cars = Car.search params[:search]
       respond_to do |format|
       format.html
-      format.json { render json: @cars}
+      format.json { render json: @cars }
       end 
     else
       @cars = Car.all
