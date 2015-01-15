@@ -65,8 +65,9 @@
                 distance = results[j].distance.text;
           }
         }
-        updateSlider();
-        updateCounter(); 
+        // updateSlider();
+        // updateCounter(); 
+        carEmissionsPerTrip(distance); 
       }
     }
     
