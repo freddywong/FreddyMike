@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114232257) do
+ActiveRecord::Schema.define(version: 20150115070213) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "brandmodel"
-    t.integer  "emissionperkm"
+    t.float    "emissionperkm"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

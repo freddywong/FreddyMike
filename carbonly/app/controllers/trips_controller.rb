@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    # binding.pry
     @trips = current_user.trips
     respond_to do |format|
       format.html

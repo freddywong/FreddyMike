@@ -1,17 +1,43 @@
 function carEmissionsPerKm(){
   var $selectedCar = $("#car-results").find("span").text();
+
+  var myJson;
+  // debugger;
   $.getJSON("/cars?search=" + $selectedCar, function(cars) {
-    
-    $.each(cars, function(index, car) {
-
-      // return cars.emissionperkm
-
-    });
+    // debugger;
+    myJson = cars[0].emissionperkm;
+    // return cars[0].emissionperkm;
+    debugger;
   });
+
+debugger;
+
+
+
+  //   $.ajax({
+  //   method: "GET",
+  //   url: "/cars?search=" + $selectedCar,
+  //   dataType: "json",
+  //   success: function(car) {
+  //   myJSON = car[0].emissionperkm;
+  //   // debugger;
+
+  //   },
+  //   error: function (error) {
+  //     console.log(error);
+  //   }
+
+  // });
+  //     myJSON;
+  //   debugger;
+
+
 }
 
 function carEmissionsPerTrip(distance) {
+
   var selectedCarEmissions = carEmissionsPerKm();
+
   var routeDistance = 2 * (parseFloat(distance));
   return selectedCarEmissions * routeDistance; 
 }

@@ -85,7 +85,7 @@ $("#car-results").on("click", ".car", function() {
 
     var destination = $("#destination").val();
     console.log("DESTINATION: ", destination);
-
+    // debugger;
     if ( !$("form#add-trip").hasClass("updating") ) {
       $.ajax({
         method: "POST",
