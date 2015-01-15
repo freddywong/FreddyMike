@@ -12,9 +12,9 @@
     </div>
     <div id="buttons" class="lg-col-4">
       <form>
-          <%= form_tag search_trips_path, method: :get, role: "search" do %>
+          <%= form_tag cars_path, method: :get, role: "search" do %>
           <p><%= text_field_tag :search, params[:search], class: "mb0 field-light" %>
-        <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade"%>
+            <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade"%>
         </p>
         <% end %>
       </form>
@@ -95,3 +95,5 @@
 <script type="tree/template" id="onetree">
   <%= render 'tree' %>
 </script>
+
+<%= render :template => 'cars/index' %>

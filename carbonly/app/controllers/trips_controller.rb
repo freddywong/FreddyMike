@@ -1,13 +1,6 @@
 class TripsController < ApplicationController
   before_action :find_trip, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  def search
-      if params[:search].present?
-        @trips = Trip.search(params[:search])
-      else
-        @trips = Trip.all
-    end
-  end
   
   def index
     @trips = current_user.trips

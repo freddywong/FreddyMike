@@ -24,7 +24,24 @@
 #                          PATCH  /trips/:id(.:format)           trips#update
 #                          PUT    /trips/:id(.:format)           trips#update
 #                          DELETE /trips/:id(.:format)           trips#destroy
+#                    demos GET    /demos(.:format)               demos#index
+#                          POST   /demos(.:format)               demos#create
+#                 new_demo GET    /demos/new(.:format)           demos#new
+#                edit_demo GET    /demos/:id/edit(.:format)      demos#edit
+#                     demo GET    /demos/:id(.:format)           demos#show
+#                          PATCH  /demos/:id(.:format)           demos#update
+#                          PUT    /demos/:id(.:format)           demos#update
+#                          DELETE /demos/:id(.:format)           demos#destroy
 #                     root GET    /                              home#index
+#              search_cars GET    /cars/search(.:format)         cars#search
+#                     cars GET    /cars(.:format)                cars#index
+#                          POST   /cars(.:format)                cars#create
+#                  new_car GET    /cars/new(.:format)            cars#new
+#                 edit_car GET    /cars/:id/edit(.:format)       cars#edit
+#                      car GET    /cars/:id(.:format)            cars#show
+#                          PATCH  /cars/:id(.:format)            cars#update
+#                          PUT    /cars/:id(.:format)            cars#update
+#                          DELETE /cars/:id(.:format)            cars#destroy
 #
 
 Rails.application.routes.draw do
@@ -33,9 +50,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  resources :trips
   resources :demos
   root "home#index"
-  resources :trips do
+  resources :cars do
   collection do 
     get 'search'
   end

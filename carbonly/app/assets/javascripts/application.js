@@ -58,6 +58,34 @@ $(function() {
   });
 
 //ADDING A NEW TRIP
+$("#add-trip").on("submit", function(event) {
+  console.log("#add-trip submit event");
+  var origin = $("#origin").val();
+  console.log("ORIGIN: ", origin);
+
+  var destination = $("#destination").val();
+  console.log("DESTINATION: ", destination);
+
+
+  $.ajax({
+    method: "POST",
+    url: "/trips",
+    dataType: "json",
+    data: {
+      trip: {
+        origin: origin,
+        destination: destination 
+      }
+    },
+    success: function(trip) {
+      $("#trips-list").append("<p data-id=\"" + trip.id + "\" class=\"trip\"><span class=\"origin\">" + trip.origin + " </span><span class=\"destination\">" + trip.destination + "</span> <button>x</button></p>");
+    },
+    error: function (error) {
+      console.log(error);
+    }
+  }); 
+});    
+//ADDING A NEW TRIP
   $("#add-trip").on("submit", function(event) {
     console.log("#add-trip submit event");
     var origin = $("#origin").val();
