@@ -1,4 +1,4 @@
- var distance;
+
  var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
     var map;
@@ -63,11 +63,13 @@
                 + results[j].duration.text + '<br>';
                 
                 distance = results[j].distance.text;
+                routeDistance = 2 * (parseFloat(distance));
+
           }
         }
         // updateSlider();
-        // updateCounter(); 
-        carEmissionsPerTrip(distance); 
+        // updateCounter();
+        carEmissionsPerTrip(); 
       }
     }
     

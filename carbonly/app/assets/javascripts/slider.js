@@ -24,18 +24,20 @@
 
 
 // }
+var carEmissionsPerKm = 0.19;
+var routeDistance = 0;
 
-function carEmissionsPerTrip(distance) {
+function carEmissionsPerTrip() {
 
   var $selectedCar = $("#car-results").find("span").text();
 
   // debugger;
   $.getJSON("/cars?search=" + $selectedCar, function(cars) {
     // debugger;
-    var carEmissionsPerKm = cars[0].emissionperkm;
-    var routeDistance = 2 * (parseFloat(distance));
-    updateSlider(carEmissionsPerKm * routeDistance);
-    updateCounter(carEmissionsPerKm * routeDistance); 
+    carEmissionsPerKm = cars[0].emissionperkm;
+
+    updateSlider();
+    updateCounter(); 
     // return cars[0].emissionperkm;
     // debugger;
   });
@@ -43,13 +45,17 @@ function carEmissionsPerTrip(distance) {
 }
   
 
-function updateSlider(tripEmissions) {
+function updateSlider() {
+
+  // var carEmissionsPerTrip = carEmissionsPerKm * routeDistance;
+
   var currentDaysValue = $("input#days-slide").val();
   var currentTimePeriodValue = $("input#time-period-slide").val();
 
-  var totalCarbonEmissions = Math.round(tripEmissions * currentDaysValue * currentTimePeriodValue);
-  var treeCost = 3.75
-  var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);
+  // var totalCarbonEmissions = Math.round(carEmissionsPerTrip * currentDaysValue * currentTimePeriodValue);
+  // var treeCost = 3.75
+  // var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);
+
   $("#days-counter").text(currentDaysValue);
   $("#time-period-counter").text(currentTimePeriodValue);
           
@@ -59,12 +65,14 @@ function updateSlider(tripEmissions) {
 
 
 
-function updateCounter(tripEmissions) {
+function updateCounter() {
+
+  var carEmissionsPerTrip = carEmissionsPerKm * routeDistance;
 
   var currentDaysValue = $("input#days-slide").val();
   var currentTimePeriodValue = $("input#time-period-slide").val();
 
-  var totalCarbonEmissions = Math.round(tripEmissions * currentDaysValue * currentTimePeriodValue);
+  var totalCarbonEmissions = Math.round(carEmissionsPerTrip * currentDaysValue * currentTimePeriodValue);
   var treeCost = 3.75;
   var totalCarbonCost = Math.round((totalCarbonEmissions/167) * treeCost);  
   if (distance === undefined) {
