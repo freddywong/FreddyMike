@@ -1,0 +1,29 @@
+<header class="main_header lg-col-4">
+  <div class="container">
+    <div id="logo">
+      <%= link_to root_path do %>
+        <p>carbonatr</p>
+      <% end %>
+    </div>
+    <div id="buttons" class="lg-col-4 pull-right">
+      <form>
+        <div id="inputs-front">
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path(@user) do %>
+            <button><%= current_user.email%></button>
+          <% end %>  
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <button>Log Out</button>
+          <% end %>  
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <button>Log In</button>
+          <% end %>  
+          <%= link_to new_user_registration_path do %>
+            <button>Sign Up</button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+</header>
+

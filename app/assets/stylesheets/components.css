@@ -18,7 +18,6 @@
 	border-radius: 0;
 	background: #f0f0f0;
 	color: #aaa;
-	-webkit-appearance: none; /* for box shadows to show on iOS */
 }
 
 .input__field:focus {
@@ -67,12 +66,12 @@
 
 #origin {
 	padding-top: 1.8rem;
-	padding-left: 8rem;
+	padding-left: 4rem;
 }
 
 #destination {
 	padding-top: 1.8rem;
-	padding-left: 8rem;
+	padding-left: 4rem;
 }
 .content h1 {
 	margin: 0 2 0em;

@@ -1,22 +1,32 @@
-
-  
+<header class="main_header lg-col-4">
+  <div class="container">
+    <div id="logo">
+      <%= link_to root_path do %>
+        <p>carbonatr</p>
+      <% end %>
+    </div>
+    
+</header>
 
 <div class="container">
   <aside class="sm-col sm-col-6 md-col-5 lg-col-4">
     <section class="content">
-        <h2 id="test">Check your carbon offset</h2>
+      <%= render :template => 'cars/index' %>
         <form id="add-trip">
+
+          
+          
         <span class="input input--haruki">
           <input id="origin" class="input__field input__field--haruki" type="text"/>
           <label class="input__label input__label--haruki" for="origin">
-            <span class="input__label-content input__label-content--haruki">Starting from</span>
+            <span class="input__label-content input__label-content--haruki">From</span>
           </label>
         </span>
 
           <span class="input input--haruki">
           <input id="destination" class="input__field input__field--haruki" type="text"/>
           <label class="input__label input__label--haruki" for="destination">
-            <span class="input__label-content input__label-content--haruki">Destination</span>
+            <span class="input__label-content input__label-content--haruki">To</span>
           </label>
         </span>
           
@@ -34,7 +44,7 @@
 
         <div id="trips-list"></div>
 
-        <div id="outputDiv"></div>
+        
       </section>
   </aside>
   <article class="content sm-col sm-col-6 md-col-7 lg-col-8">
@@ -42,6 +52,7 @@
    
       <div id="map-canvas" class="mt2">
       </div>
+      <div id="outputDiv"></div>
     </section>
     <section class="pull-left">
       <div class="pull-left"><h3>Your Carbon Emissions: </h3></div>
@@ -64,7 +75,10 @@
       
        
     </section>
+
   </article>
+
+
 </div>
 
 <script type="tree/template" id="tree-template">
@@ -74,5 +88,5 @@
 <script type="tree/template" id="onetree">
   <%= render 'tree' %>
 </script>
+      
 
-<%= render :template => 'cars/index' %>

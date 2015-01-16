@@ -21,7 +21,7 @@
 
 .main_header {
 width: 100%;
-height: 64px;
+height: 53px;
 margin: 0 auto;
 background: #2f3238;
 padding-top: 6px;
@@ -67,16 +67,36 @@ padding-top: 6px;
   -ms-transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
   }
 
-#buttons {
-		float: right;
-		color: white;
-		opacity: 0.5;
-		padding: .5em 1em;
-	}
+  .front-but {
+  text-align: center;
+  opacity: .8;
+  color: gray;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border: solid 2px gray;
+  border-radius: .8rem;
+  text-decoration: none;
+  background: transparent;
+  }
+  .front-but:hover {
+  opacity: .5;
+  color: white;
+  background: gray;
+  }
+
+.bg {
+  height: 700px;
+  background: url("/assets/traffic-faded.jpeg") no-repeat center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: -3rem;
+
+}
 		
 .main_header #buttons a {
 			line-height: 60px;
-			background: #397CAC;
 			padding: .5em 1em;
 			border-radius: 0.2em;
 			text-decoration: none;
@@ -90,12 +110,12 @@ padding-top: 6px;
 }
 
 #button-submit {
-	width: 90%;
-	padding: .8rem;
-	color: white;
-	border: none;
-	font-weight: bold;
-	text-align: left;
+  width: 90%;
+  padding: .8rem;
+  color: white;
+  border: none;
+  font-weight: bold;
+  text-align: left;
 }
 
 .hvr-fade {
@@ -128,7 +148,8 @@ iframe {
 
 .pull-right {
 	float: right;
-	width: 50%;
+width: 37%;
+margin-top: -.5rem;
 }
 
 
@@ -137,10 +158,10 @@ iframe {
 }
 #outputDiv {
   font-size: .9rem;
-  color: #FFFFFF;
-  width: 87%;
+  color: #gray;
+  width: 100%;
   padding: 5px;
-  background: #6a7989;
+  background: #f0efee;
   opacity: .6;
   min-height: 2rem;
 }
@@ -189,7 +210,16 @@ text-align: center;
   width: 20px;
   float: right;
 }
-
+.car {
+  color: white;
+  background-color: gray;
+  font-size: 1.2;
+  line-height: .5rem;
+  width: 86%;
+  padding: 10px 0px 11px 15px;
+  margin-bottom: .3rem;
+  opacity: .4;
+}
 
 #draw {
 	text-align: left;
@@ -206,6 +236,16 @@ text-align: center;
   stroke-miterlimit:4;
   stroke-opacity:1;
   transition: all 1s ease-in-out;
+}
+
+#inputs-front button {
+  border-radius: 0.3rem;
+  background: transparent;
+  border: solid 1px white;
+  opacity: .3;
+  color: white;
+  height: 2rem;
+  line-height: 0rem;
 }
 
 input[type=range]{
@@ -248,12 +288,59 @@ svg {
      width: auto;
     /*margin-left: -4rem;*/
     }
-aside {
-	background: #f0efee;
-	
+.inputs {
+  text-align: center;
+}
+.inputs h2 {
+  font-size: 2rem;
+opacity: .5;
+}
+.inputs label {
+font-size: 1.5rem;
+opacity: .7;
+}
+.actions input {
+  padding: .5rem;
+  font-size: 1.5rem;
+  color: gray;
+  border-radius: .4rem;
+  background: transparent;
+  border: solid 1px gray;
 }
 
-article {
-		background: #f0efee;
-	
+
+.inputs a {
+color: gray;
+font-size: 1.2rem;
+display: inline;
+}
+#user_email {
+font-size: 1.5rem;
+opacity: .7;
+border-radius: .5rem;
+border: solid 1px gray;
+}
+#user_password {
+font-size: 1.5rem;
+opacity: .7;
+border-radius: .5rem;
+border: solid 1px gray;
+}
+.bloodycenter {
+  text-align: center;
+line-height: 1rem;
+margin-top: -12rem;
+}
+
+#search-car-form {
+  width: 93%;
+  margin-top: 1rem;
+}
+#search-car-field {
+  background: transparent;
+width: 74%;
+}
+#search-car-button {
+  border: none;
+padding: .5rem;
 }
