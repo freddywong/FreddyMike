@@ -1,0 +1,55 @@
+<header class="white bg-mid-gray bg-cover bg-center"
+  style="background-image: url('city-traffic1.jpeg')">
+  <nav class="clearfix white">
+    <div class="sm-col">
+      <a href="/" class="button py2 button-nav-dark">Home</a>
+      <a href="/" class="button py2 button-nav-dark">Burgers</a>
+      <a href="/" class="button py2 button-nav-dark">Fries</a>
+    </div>
+    <div class="sm-col-right" class="mb1">
+        <% if user_signed_in? %>
+          <%= link_to edit_user_registration_path(@user) do %>
+            <button class="button-blue-outline"><%= current_user.email %></button>
+          <% end %>  
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <button class="button-red">Log Out</button>
+          <% end %>  
+        <% else %>
+          <%= link_to new_user_session_path do %>
+            <button class="button-blue-outline">Log In</button>
+          <% end %>  
+          <%= link_to new_user_registration_path do %>
+            <button class="button-blue">Sign Up</button>
+          <% end %>
+        <% end %>
+    </div>
+  </nav>
+  <div class="center px2 py4">
+    <h1 class="h1 h0-responsive caps mt4 mb0 regular">Hamburgers</h1>
+    <p class="h3">Artisinal ground chuck creations</p>
+    <a href="/demos" class="h3 button button-big mb4 button-blue">Pancake</a>
+  </div>
+</header>
+<section class="container px2 py3">
+  <div class="clearfix mxn2">
+    <div class="sm-col sm-col-4 px2">
+      <h2 class="h1 mb0">Bacon</h2>
+      <p>Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.</p>
+    </div>
+    <div class="sm-col sm-col-4 px2">
+      <h2 class="h1 mb0">Bratwurst</h2>
+      <p>Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.</p>
+    </div>
+    <div class="sm-col sm-col-4 px2">
+      <h2 class="h1 mb0">Andouille</h2>
+      <p>Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.</p>
+    </div>
+  </div>
+</section>
+<footer class="white bg-dark-gray">
+  <div class="px2 py3 container">
+    <p class="h6 mb0" style="text-align: center;">&copy; 2014 Hamburgers, LLC</p>
+  </div>
+</footer>
+
+

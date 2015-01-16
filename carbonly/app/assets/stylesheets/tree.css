@@ -1,3 +1,0 @@
-#cartoon-tree { 
-  background-image: url(<%= asset_path 'tree.png' %>) 
-}

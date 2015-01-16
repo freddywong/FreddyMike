@@ -1,0 +1,86 @@
+<header class="main_header">
+  <div class="container">
+    <div id="logo">
+      <p><a href="#">Carbon.ly</a></p>
+    </div>
+    <form id="buttons">
+      <label>Sign up/Sign in</label>
+      <input type="text" class="mb0 field-light">
+      <button class="button-grey hvr-fade">Go</button>
+    </form>
+  </div>
+</header>
+  
+
+<div class="container">
+  <aside class="sm-col sm-col-6 md-col-5 lg-col-4">
+    <section class="content"> 
+        <form id="add-trip">
+        <span class="input input--haruki">
+          <input id="origin" class="input__field input__field--haruki" type="text"/>
+          <label class="input__label input__label--haruki" for="origin">
+            <span class="input__label-content input__label-content--haruki">Starting from</span>
+          </label>
+        </span>
+
+          <span class="input input--haruki">
+          <input id="destination" class="input__field input__field--haruki" type="text"/>
+          <label class="input__label input__label--haruki" for="destination">
+            <span class="input__label-content input__label-content--haruki">Destination</span>
+          </label>
+        </span>
+          
+          <div class="mt3">
+            <input id="button-submit" class="input__label-content input__label-content--haruki hvr-fade" type="submit" value="submit">
+        </div>
+        </form>
+        
+        <input id="days-slide" type="range" min="0" max="7" step="1" value="5">
+        <h4><span id="days-counter">5</span><span> Days every week</span></h4> 
+
+        <input id="time-period-slide" type="range" min="0" max="52" step="1" value="52">
+        <h4><span id="time-period-counter">52</span><span> Weeks in a year</span></h4> 
+
+        <div id="outputDiv"></div><br>
+        <%= link_to new_user_registration_path do %>
+          <button class="button-blue">Save your trips</button>
+        <% end %>
+      </section>
+  </aside>
+  <article class="content sm-col sm-col-6 md-col-7 lg-col-8">
+    <section class="content">
+   
+      <div id="map-canvas" class="mt2">
+      </div>
+    </section>
+    <section class="pull-left">
+      <div class="pull-left"><h3>Your Carbon Emissions: </h3></div>
+      <div class="pull-right"><h1 id="carbon-emissions" style="color: green;">0 Kg</h1></div>
+    </section>
+    <section class="pull-right">
+      <div class="pull-left"><h3>Your Carbon Cost: </h3></div>
+      <div class="pull-right"><h1 id="carbon-cost" style="color:black;">0 Dollars</h1></div>
+    </section>
+    <section class="trees pull-left">
+      <h3>Cost in trees</h3>
+      <div class="tree"></div> 
+    </section>
+    <section class="trees pull-right">
+      <div class="pull-left"><h3>Number of trees to buy: </h3></div>
+      <div class="pull-right"><h1 class="tree-cost"></h1></div>
+      <div class="clearfix:before">
+        <a href="http://www.carbonneutral.com.au/organisations/plant-trees.html">Plant Some trees</a>
+      </div>
+      
+       
+    </section>
+  </article>
+</div>
+
+<script type="tree/template" id="tree-template">
+  <%= render 'tree' %>
+</script>
+
+<script type="tree/template" id="onetree">
+  <%= render 'tree' %>
+</script>
