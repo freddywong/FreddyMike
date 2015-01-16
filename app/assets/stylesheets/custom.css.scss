@@ -29,19 +29,43 @@ padding-top: 6px;
 	}
 
 .main_header #logo {
-		float: left;
-    line-height: 2.6rem;
-	}
+    float: left;
+  }
 
-#logo a {
-			text-transform: uppercase;
-			font-weight: 700;
-			letter-spacing: -1px;
-			font-size: 2rem;
-			text-decoration: none;
-			color: white;
-			opacity: 0.2;
-		}
+#logo p {
+      font-size: 1.8rem;
+      line-height: 2.1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
+      opacity: .5;    
+      text-decoration: none;
+      letter-spacing: -2px;
+      transform: rotate(357deg) scale(1) skew(-3deg) translate(0px);
+      -webkit-transform: rotate(357deg) scale(1) skew(-3deg) translate(0px);
+      -moz-transform: rotate(357deg) scale(1) skew(-3deg) translate(0px);
+      -o-transform: rotate(357deg) scale(1) skew(-3deg) translate(0px);
+      -ms-transform: rotate(357deg) scale(1) skew(-3deg) translate(0px);
+}
+
+#front h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -8px;
+  font-size: 13.5rem;
+  text-decoration: none;
+  color: black;
+  opacity: .6;
+  text-align: center;
+  line-height: 26rem;
+  margin-top: 3rem;
+  transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
+  -webkit-transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
+  -moz-transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
+  -o-transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
+  -ms-transform: rotate(351deg) scale(0.811) skew(-8deg) translate(0px);
+  }
 
 #buttons {
 		float: right;
