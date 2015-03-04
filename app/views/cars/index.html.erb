@@ -1,5 +1,5 @@
 <%= form_tag "#", method: :get, role: "search", id: "search-car-form" do %>
-  <p><%= text_field_tag :search, params[:search], class: "mb0 field-light", id: "search-car-field"%>
+  <p><%= text_field_tag :search, params[:search], class: "mb0 field-light", id: "search-car-field", placeholder: "Search a car..."%>
     <%= submit_tag "Search", name: nil, class: "button-grey hvr-fade", id: "search-car-button" %>
   </p>
 <% end %>
